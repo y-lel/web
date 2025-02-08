@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaya Beauty Store</title>
+    <link rel="stylesheet" href="">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* deetlin har */
+        .top-bar {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            font-size: 14px;
+        }
+        /* tolgoi */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .search-bar {
+            flex: 10;
+            margin: 0 20px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: 500;
+        }
+
+        .icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart, .login {
+            margin-left: 15px;
+            cursor: pointer;
+        }
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            position: relative;
+        }
+
+        .hero img {
+            width: 100%;
+            height: auto;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px 20px;
+            color: white;
+            border-radius: 5px;
+        }
+        .limited-edition {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .limited-edition h2 {
+            font-size: 22px;
+            color: #333;
+        }
+        .limited-edition img {
+            width: 250px;
+            margin-top: 10px;
+        }
+
+        /* Product Section */
+        .products {
+            text-align: center;
+            padding: 40px 0;
+        }
+        .products h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .product-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .product-card {
+            position: relative;
+            width: 200px;
+            background: white;
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+        .product-card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .discount {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: red;
+            color: white;
+            padding: 5px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .price {
+            font-weight: bold;
+            color: green;
+            margin-top: 5px;
+        }
+
+        /* Categories */
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 40px 0;
+        }
+        .category {
+            text-align: center;
+        }
+        .category img {
+            width: 80px;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+        .category img:hover {
+            transform: scale(1.1);
+        }
+        .category p {
+            margin-top: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        /* Categories */
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+            padding:100px;
+        }
+
+        .category-item {
+            text-align: center;
+        }
+
+        .category-item img {
+            width: 100px;
+            height: auto;
+        }
+
+        /* Discounted Products */
+        .discounts, .new-arrivals {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .product {
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .product img {
+            width: 150px;
+            height: auto;
+        }
+
+        /* Brand Logos */
+        .brands {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .brand-logos img {
+            width: 100px;
+            margin: 10px;
+        }
+
+        /* User Reviews */
+        .reviews {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .review {
+            background: #f9f9f9;
+            margin: 10px auto;
+            padding: 10px;
+            width: 60%;
+            border-radius: 5px;
+        }
+
+        footer {
+        background: black;
+        color: white;
+        padding: 40px 20px;
+        font-family: Arial, sans-serif;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .footer-section {
+            width: 30%;
+            min-width: 250px;
+        }
+
+        .footer-section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .footer-section h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .footer-section p, .footer-section ul {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Social Media Icons */
+        .social-icons {
+            margin-top: 15px;
+        }
+
+        .social-icons a img {
+            width: 30px;
+            margin-right: 10px;
+        }
+
+        /* Footer Bottom */
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 14px;
+            border-top: 1px solid gray;
+            margin-top: 20px;
+        }
+
+        .footer-bottom a {
+            color: #ccc;
+        }
+
+        .footer-bottom a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-section {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+    </style>
+        </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">150,000₮-с дээш хүргэлт үнэгүй</div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">Xzaya</div>
+        <nav>
+            <ul>
+                <li><a href="noorog.html">Бүгд</a></li>
+                <li><a href="#">Арьсны асуудал</a></li>
+                <li><a href="#">Арьсны төрөл</a></li>
+                <li><a href="#">Цэвэрлэгээ</a></li>
+                <li><a href="#">Арчилгаа</a></li>
+            </ul>
+        </nav>
+        <input type="text" class="search-bar" placeholder="Хайлт">
+        <div class="icons">
+            <span class="cart">🛒</span>
+            <span class="login">Нэвтрэх / Бүртгүүлэх</span>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="zuragss\nuur.jpg" alt="Banner">
+    </section>
+
+    <!-- Limited Edition Pouch -->
+    <section class="limited-edition">
+        <h2>What's in my pouch</h2>
+        <p>Limited Edition</p>
+        <img src="zuragss\pouch.png" alt="Limited Pouch">
+    </section>
+
+    <!-- Product Section -->
+    <section class="products">
+        <h2>Хямдралтай</h2>
+        <div class="product-container">
+            <div class="product-card">
+                <img src="zuragss\men-daily-set-149900-1.png" alt="Product 1">
+                <span class="discount">-50%</span>
+                <p>Travel Edition Pouch</p>
+                <p class="price">4,800₮</p>
+            </div>
+            <div class="product-card">
+                <img src="zuragss\Mung-Bean-Balancing-Toner.png" alt="Product 2">
+                <span class="discount">-30%</span>
+                <p>Mini Essential Kit</p>
+                <p class="price">30,000₮</p>
+            </div>
+            <div class="product-card">
+                <img src="zuragss\Relief-sun_-Aqua-Fresh.png" alt="Product 3">
+                <span class="discount">-50%</span>
+                <p>Pure Calming Cica Cream</p>
+                <p class="price">10,000₮</p>
+            </div>
+            <div class="product-card">
+                <img src="zuragss\Relief-sun_-Aqua-Fresh.png" alt="Product 3">
+                <span class="discount">-50%</span>
+                <p>Pure Calming Cica Cream</p>
+                <p class="price">10,000₮</p>
+            </div>
+            <div class="product-card">
+                <img src="zuragss\Relief-sun_-Aqua-Fresh.png" alt="Product 3">
+                <span class="discount">-50%</span>
+                <p>Pure Calming Cica Cream</p>
+                <p class="price">10,000₮</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="category">
+            <img src="zuragss\image.png" alt="Skincare">
+            <p>Бие арчилгаа</p>
+        </div>
+        <div class="category">
+            <img src="zuragss\image1.png" alt="Discount">
+            <p>Хямдралтай бүтээгдэхүүнүүд</p>
+        </div>
+        <div class="category">
+            <img src="zuragss\image2.png" alt="Makeup">
+            <p>Make up</p>
+        </div>
+        <div class="category">
+            <img src="zuragss\image3.png" alt="Hair">
+            <p>Үс арчилгаа</p>
+        </div>
+        <div class="category">
+            <img src="zuragss\image1.png" alt="Discount">
+            <p>Хямдралтай бүтээгдэхүүнүүд</p>
+        </div>
+        <div class="category">
+            <img src="zuragss\image1.png" alt="Discount">
+            <p>Хямдралтай бүтээгдэхүүнүүд</p>
+        </div>
+        <div class="category">
+            <img src="zuragss\image1.png" alt="Discount">
+            <p>Хямдралтай бүтээгдэхүүнүүд</p>
+        </div>
+        <div class="category">
+            <img src="zuragss\image1.png" alt="Discount">
+            <p>Хямдралтай бүтээгдэхүүнүүд</p>
+        </div>
+        <div class="category">
+            <img src="zuragss\image1.png" alt="Discount">
+            <p>Хямдралтай бүтээгдэхүүнүүд</p>
+        </div>
+    </section>
+
+
+    <!-- Discounted Products -->
+    <section class="discounts">
+        <h2>Шинэ</h2>
+        <div class="product-list">
+            <div class="product">
+                <img src="zuragss\Mung-Bean-Balancing-Toner.png" alt="Product">
+                <p>Travel Set (Blue Pouch)</p>
+                <span>44,900₮</span>
+            </div>
+            <div class="product">
+                <img src="zuragss\men-daily-set-149900-1.png" alt="Product">
+                <p>Men Essential Set</p>
+                <span>109,900₮</span>
+            </div>
+            <div class="product">
+                <img src="zuragss\men-daily-set-149900-1.png" alt="Product">
+                <p>Men Essential Set</p>
+                <span>109,900₮</span>
+            </div>
+            <div class="product">
+                <img src="zuragss\men-daily-set-149900-1.png" alt="Product">
+                <p>Men Essential Set</p>
+                <span>109,900₮</span>
+            </div>
+            <div class="product">
+                <img src="zuragss\men-daily-set-149900-1.png" alt="Product">
+                <p>Men Essential Set</p>
+                <span>109,900₮</span>
+            </div>
+            <div class="product">
+                <img src="zuragss\men-daily-set-149900-1.png" alt="Product">
+                <p>Men Essential Set</p>
+                <span>109,900₮</span>
+            </div>
+            <div class="product">
+                <img src="zuragss\men-daily-set-149900-1.png" alt="Product">
+                <p>Men Essential Set</p>
+                <span>109,900₮</span>
+            </div>
+        </div>
+    </section>
+    <!-- Brand Logos -->
+    <section class="brands">
+        <h2>Брэндүүд</h2>
+        <div class="brand-logos">
+            <img src="brand1.png" alt="ONE THING">
+            <img src="brand2.png" alt="Round Lab">
+            <img src="brand3.png" alt="BLIV:U">
+            <img src="brand3.png" alt="BLIV:U">
+            <img src="brand3.png" alt="BLIV:U">
+            <img src="brand3.png" alt="BLIV:U">
+            <img src="brand3.png" alt="BLIV:U">
+            <img src="brand3.png" alt="BLIV:U">
+        </div>
+    </section>
+
+    <!-- User Reviews -->
+    <section class="reviews">
+        <h2>Хэрэглэгчийн сэтгэгдэл</h2>
+        <div class="review">
+            <p>"Үнэхээр өвөл зун аль алинд нь хэрэглээд сэтгэл ханамжтай 2 дахь 
+                саваа дуусгасан. Зундаа арьс халууцуулахгүй, өвөлдөө хуурайшуулахгүй 
+                сайн чиигшил өгдөг. Бас дээрээс нь цагааруулдаггүй тул эрэгтэй хүмүүст ч 
+                бас их тохиромжтой санагдсан. Ер нь хэрэглэж үзсэг хүмүүс гоё тос гэдгийг нь 
+                мэднэ дээ.!"</p>
+            <span>@anu7589</span>
+        </div>
+        <div class="review">
+            <p>"Цэвэрлэгч гел нь их дажгүй бүх арьсанд тохирсон буюу хүчиллэг найрлага бага
+                арьсыг хуурайшуулж таталдуулдаггүй бөгөөд арьсыг арчилгааны шатанд 
+                бэлдэж өгдөг. Арьсыг чинь олон долоон юмгүй цэвэрлэчих бүтээгдэхүүн хайж байвал туршаад үзээрэй!"</p>
+            <span>@khongoru515</span>
+        </div>
+
+        <div class="review">
+            <p>"Зөөлөн бүтэцтэй бөгөөд арьсанд таатай!"</p>
+            <span>@khongoru515</span>
+        </div>
+        <div class="review">
+            <p>"Энэ тосыг хоёр долоо хоног хэрэглэж байнаа. Гормоны өөрчлөлтөөс болоод гарч байгаа эмзэгшсэн арьсан
+                дээр минь гарсан жижиг толгойтой толгойгүй тууралттай батга зэргийг аргадаж өгч тайвшруулж өгч байгаа.
+                Бүтцийн хувьд ч хөнгөн учир санал болгож байна.!"</p>
+            <span>@khongoru515</span>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <!-- Left Section: Contact Information -->
+            <div class="footer-section">
+                <h2>XZAYA</h2>
+                <h3>ХОЛБОО БАРИХ</h3>
+                <p>📞 95899691</p>
+                <p>📧 <a href="mailto:info@xzaya.mn">info@xzaya.mn</a></p>
+                <p>📍 Khan uul district, 15th khoroo, Chingis Avenue street, 33/1-1108, Ulaanbaatar, Mongolia</p>
+            </div>
+    
+            <!-- Middle Section: Helpful Information -->
+            <div class="footer-section">
+                <h3>ТУСЛАМЖ МЭДЭЭЛЭЛ</h3>
+                <ul>
+                    <li><a href="#">Түгээмэл асуулт хариулт</a></li>
+                    <li><a href="#">Үйлчилгээний нөхцөл</a></li>
+                    <li><a href="#">Бидэнтэй нэгдээрэй</a></li>
+                    <li><a href="#">Холбоо барих</a></li>
+                </ul>
+            </div>
+    
+            <!-- Right Section: About Us -->
+            <div class="footer-section">
+                <h3>БИДНИЙ ТУХАЙ</h3>
+                <ul>
+                    <li><a href="#">Бид хэн бэ?</a></li>
+                    <li><a href="#">Үйл ажиллагаа</a></li>
+                    <li><a href="#">Тээвэрлэлтний талаар</a></li>
+                </ul>
+                
+                <!-- Social Media Icons -->
+                <div class="social-icons">
+                    <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                    <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+                    <a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+                    <a href="#"><img src="tiktok-icon.png" alt="TikTok"></a>
+                    <a href="#"><img src="youtube-icon.png" alt="YouTube"></a>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+            <p>© 2024 Xzaya. Бүх эрх хуулиар хамгаалагдсан.</p>
+            <p>Вэб сайтын талаар санал хүсэлт байвал <a href="#">бидэнд мэдэгдээрэй.</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
