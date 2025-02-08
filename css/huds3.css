@@ -1,0 +1,275 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+}
+
+/* Header */
+/* deetlin har */
+.top-bar {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    font-size: 14px;
+}
+
+/* tolgoi */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.search-bar {
+    flex: 10;
+    margin: 0 20px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.cart,
+.login {
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+/* Main Layout */
+.container {
+    display: flex;
+    margin: 20px;
+}
+
+/* Product Section */
+.product-container {
+    display: flex;
+    padding: 40px;
+    background: white;
+    max-width: 1000px;
+    margin: 20px auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.product-gallery {
+    width: 40%;
+}
+
+.main-image {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.thumbnail-container {
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.thumbnail-container img {
+    width: 350px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-details {
+    width: 60%;
+    padding: 20px;
+}
+
+.product-details h1 {
+    font-size: 24px;
+}
+
+.rating {
+    color: gold;
+    font-size: 18px;
+}
+
+.size,
+.description {
+    margin: 10px 0;
+}
+
+.stock-status {
+    font-weight: bold;
+    color: green;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.quantity button {
+    padding: 5px 10px;
+    border: none;
+    background: #ccc;
+    cursor: pointer;
+}
+
+.quantity input {
+    width: 50px;
+    text-align: center;
+    margin: 0 5px;
+}
+
+.add-to-cart {
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.expandable h3 {
+    background: #eee;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.expandable p {
+    padding: 10px;
+    display: none;
+}
+
+footer {
+    background: black;
+    color: white;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-section {
+    width: 30%;
+    min-width: 250px;
+}
+
+.footer-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.footer-section h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.footer-section p,
+.footer-section ul {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+/* Social Media Icons */
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons a img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 14px;
+    border-top: 1px solid gray;
+    margin-top: 20px;
+}
+
+.footer-bottom a {
+    color: #ccc;
+}
+
+.footer-bottom a:hover {
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
+

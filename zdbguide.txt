@@ -1,0 +1,15 @@
+CREATE TABLE products (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    description TEXT,
+    price DECIMAL(10,2) NOT NULL,
+    image TEXT,
+    stock INT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Insert dummy data
+INSERT INTO products (name, description, price, image, stock) VALUES
+('Dr.Different Vitacnal TX Night Cream', 'A powerful night cream for skin repair.', 69900, 'images/dr_different.png', 50),
+('Round Lab 1025 Dokdo Toner', 'A hydrating toner for all skin types.', 29900, 'images/round_lab_toner.png', 100),
+('Beauty of Joseon Relief Sun', 'Lightweight sunscreen with SPF 50.', 34900, 'images/beauty_joseon_sun.png', 75);

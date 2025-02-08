@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaya Store</title>
+    <link rel="stylesheet" href="../css/huds2.css">
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">150,000₮-с дээш хүргэлт үнэгүй</div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">Xzaya</div>
+        <nav>
+            <ul>
+                <li><a href="#">Бүгд</a></li>
+                <li><a href="#">Арьсны асуудал</a></li>
+                <li><a href="#">Арьсны төрөл</a></li>
+                <li><a href="#">Цэвэрлэгээ</a></li>
+                <li><a href="#">Арчилгаа</a></li>
+            </ul>
+        </nav>
+        <input type="text" class="search-bar" placeholder="Хайлт">
+        <div class="icons">
+            <span class="cart">🛒</span>
+            <span class="login">Нэвтрэх / Бүртгүүлэх</span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <script src="../js/sidebar.js"></script>
+        <div class="main-content">
+            <app-module></app-module> <!-- App Module Component -->
+
+            <script src="../components/ProductComponent.js"></script> <!-- Product Component -->
+            <script src="../components/CartComponent.js"></script> <!-- Cart Component -->
+            <script src="../components/AppModule.js"></script> <!-- Main App Module -->
+            <script src="../app.js"></script> <!-- App JavaScript -->
+        </div>
+    </div>
+
+    <script src="../js/footer.js"></script>
+</body>
+</html>
