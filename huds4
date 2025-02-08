@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaya - Shopping Cart</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+        }
+
+        /* Header */
+        /* deetlin har */
+        .top-bar {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            font-size: 14px;
+        }
+        /* tolgoi */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .search-bar {
+            flex: 10;
+            margin: 0 20px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: 500;
+        }
+
+        .icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart, .login {
+            margin-left: 15px;
+            cursor: pointer;
+        }
+
+        /* Main Layout */
+        .container {
+            display: flex;
+            margin: 20px;
+        }
+    
+
+        /* Cart Container */
+        .cart-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Left Side - Product List */
+        .cart-items {
+            width: 60%;
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #ccc;
+        }
+        .cart-item img {
+            width: 70px;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+        .cart-item h2 {
+            font-size: 16px;
+        }
+        .price {
+            font-weight: bold;
+            color: black;
+            margin-left: auto;
+        }
+        .quantity {
+            margin: 0 15px;
+        }
+
+        /* Coupon & Payment */
+        .coupon {
+            margin-top: 15px;
+        }
+        .coupon input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Right Side - Summary */
+        .cart-summary {
+            width: 35%;
+            background: #f3f3f3;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+        .checkout-button {
+            width: 100%;
+            padding: 12px;
+            background: #28a745;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        /* Suggested Products */
+        .suggested-products {
+            max-width: 1000px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .suggested-products h2 {
+            margin-bottom: 15px;
+        }
+        .products {
+            display: flex;
+            gap: 15px;
+        }
+        .product-card {
+            width: 30%;
+            padding: 10px;
+            background: #f3f3f3;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .product-card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .discount {
+            color: red;
+            font-weight: bold;
+        }
+
+        /* Free Shipping Notice */
+        .shipping-notice {
+            max-width: 1000px;
+            margin: 20px auto;
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        footer {
+        background: black;
+        color: white;
+        padding: 40px 20px;
+        font-family: Arial, sans-serif;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .footer-section {
+            width: 30%;
+            min-width: 250px;
+        }
+
+        .footer-section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .footer-section h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .footer-section p, .footer-section ul {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Social Media Icons */
+        .social-icons {
+            margin-top: 15px;
+        }
+
+        .social-icons a img {
+            width: 30px;
+            margin-right: 10px;
+        }
+
+        /* Footer Bottom */
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 14px;
+            border-top: 1px solid gray;
+            margin-top: 20px;
+        }
+
+        .footer-bottom a {
+            color: #ccc;
+        }
+
+        .footer-bottom a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-section {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+    </style>
+        </style>
+
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="top-bar">150,000₮-с дээш хүргэлт үнэгүй</div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">Xzaya</div>
+        <nav>
+            <ul>
+                <li><a href="noorog.html">Бүгд</a></li>
+                <li><a href="#">Арьсны асуудал</a></li>
+                <li><a href="#">Арьсны төрөл</a></li>
+                <li><a href="#">Цэвэрлэгээ</a></li>
+                <li><a href="#">Арчилгаа</a></li>
+            </ul>
+        </nav>
+        <input type="text" class="search-bar" placeholder="Хайлт">
+        <div class="icons">
+            <span class="cart">🛒</span>
+            <span class="login">Нэвтрэх / Бүртгүүлэх</span>
+        </div>
+    </header>
+
+    <!-- Cart Navigation -->
+    <div class="cart-nav">
+        🛒 САГС → ТӨЛБӨР ТӨЛӨХ → ЗАХИАЛГА БАТАЛГААЖУУЛАХ
+    </div>
+
+    <!-- Cart Section -->
+    <div class="cart-container">
+        <!-- Left Side: Cart Items -->
+        <div class="cart-items">
+            <h2>БҮТЭЭГДЭХҮҮН</h2>
+            <div class="cart-item">
+                <img src="product.jpg" alt="Product">
+                <h2>Dr.Different Vitaacnal TX Night Cream (OIL FREE)</h2>
+                <span class="price">69,900₮</span>
+                <input type="number" value="1" class="quantity">
+                <span class="price">69,900₮</span>
+            </div>
+
+            <div class="coupon">
+                <h3>Купон код:</h3>
+                <input type="text" placeholder="Код оруулах...">
+            </div>
+
+            <div class="coupon">
+                <h3>Бэлгийн карт код:</h3>
+                <input type="text" placeholder="Код оруулах...">
+            </div>
+        </div>
+
+        <!-- Right Side: Cart Summary -->
+        <div class="cart-summary">
+            <h2>САГСНЫ ДҮН</h2>
+            <div class="summary-row">
+                <span>Нийт үнэ:</span>
+                <span>69,900₮</span>
+            </div>
+            <div class="summary-row">
+                <span>Хүргэлт:</span>
+                <span>5,000₮</span>
+            </div>
+            <hr>
+            <div class="summary-row">
+                <strong>Нийт дүн:</strong>
+                <strong>74,900₮</strong>
+            </div>
+            <button class="checkout-button">Захиалга баталгаажуулах</button>
+        </div>
+    </div>
+
+    <!-- Suggested Products -->
+    <div class="suggested-products">
+        <h2>Танд санал болгох</h2>
+        <div class="products">
+            <div class="product-card">
+                <span class="discount">-15%</span>
+                <img src="suggest1.jpg" alt="Product">
+            </div>
+            <div class="product-card">
+                <span class="discount">-30%</span>
+                <img src="suggest2.jpg" alt="Product">
+            </div>
+        </div>
+    </div>
+
+    <!-- Free Shipping Notice -->
+    <div class="shipping-notice">
+        🚚 Үнэгүй хүргэлт: 100,000₮-с дээш худалдан авалтад хүргэлт үнэгүй!
+    </div>
+    <footer>
+        <div class="footer-container">
+            <!-- Left Section: Contact Information -->
+            <div class="footer-section">
+                <h2>XZAYA</h2>
+                <h3>ХОЛБОО БАРИХ</h3>
+                <p>📞 95899691</p>
+                <p>📧 <a href="mailto:info@xzaya.mn">info@xzaya.mn</a></p>
+                <p>📍 Khan uul district, 15th khoroo, Chingis Avenue street, 33/1-1108, Ulaanbaatar, Mongolia</p>
+            </div>
+    
+            <!-- Middle Section: Helpful Information -->
+            <div class="footer-section">
+                <h3>ТУСЛАМЖ МЭДЭЭЛЭЛ</h3>
+                <ul>
+                    <li><a href="#">Түгээмэл асуулт хариулт</a></li>
+                    <li><a href="#">Үйлчилгээний нөхцөл</a></li>
+                    <li><a href="#">Бидэнтэй нэгдээрэй</a></li>
+                    <li><a href="#">Холбоо барих</a></li>
+                </ul>
+            </div>
+    
+            <!-- Right Section: About Us -->
+            <div class="footer-section">
+                <h3>БИДНИЙ ТУХАЙ</h3>
+                <ul>
+                    <li><a href="#">Бид хэн бэ?</a></li>
+                    <li><a href="#">Үйл ажиллагаа</a></li>
+                    <li><a href="#">Тээвэрлэлтний талаар</a></li>
+                </ul>
+                
+                <!-- Social Media Icons -->
+                <div class="social-icons">
+                    <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                    <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+                    <a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+                    <a href="#"><img src="tiktok-icon.png" alt="TikTok"></a>
+                    <a href="#"><img src="youtube-icon.png" alt="YouTube"></a>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+            <p>© 2024 Xzaya. Бүх эрх хуулиар хамгаалагдсан.</p>
+            <p>Вэб сайтын талаар санал хүсэлт байвал <a href="#">бидэнд мэдэгдээрэй.</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
